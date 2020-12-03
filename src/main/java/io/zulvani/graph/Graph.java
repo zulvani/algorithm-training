@@ -18,7 +18,7 @@ public class Graph {
         if(!nodes.containsKey(nodeDest)){
             nodes.put(nodeDest, new ArrayList<>());
         }
-        nodes.get(nodeSource).add(new Edge(nodeSource, nodeDest, weight));
+        nodes.get(nodeSource).add(new Edge(nodeDest, weight));
     }
 
     public void print(){
@@ -29,14 +29,6 @@ public class Graph {
         });
     }
 
-    private String printQueue(Queue<String> queue){
-        StringBuilder r = new StringBuilder(" [" + queue.size() + "] ");
-//        for(Edge edge : queue){
-//            r.append(edge.getNode() + ",");
-//        }
-        return r.toString();
-    }
-
     public void traverseWithDFS(String node, Queue<String> queue, Set<String> visited){
         visited.add(node);
 
@@ -44,7 +36,7 @@ public class Graph {
             if(!node.equals(edge.getDestNode())) {
                 queue.add(edge.getDestNode());
             }
-            System.out.println(node + " = " + edge.getWeight() + " => " + edge.getDestNode() + printQueue(queue));
+            System.out.println(node + " = " + edge.getWeight() + " => " + edge.getDestNode() + " [" + queue.size() + "] ");
         });
 
         boolean alreadyVisited = false;

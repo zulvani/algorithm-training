@@ -16,7 +16,7 @@ public class MainGraph {
 //        graph.addEdge("2", "7", 0.0);
 //        graph.addEdge("3", "8", 0.0);
 //
-//        graph.addEdge("1", "1", 0.0);
+//        graph.addEdge("2", "2", 0.0);
 
         graph.addEdge("2", "3", 0.1);
         graph.addEdge("2", "0", 0.2);
@@ -25,7 +25,7 @@ public class MainGraph {
         graph.addEdge("0", "1", 2.0);
         graph.addEdge("1", "2", 1.0);
 
-        graph.traverseWithDFS("2", new LinkedList<>(), new HashSet<>());
+        graph.traverseWithDFS("1", new LinkedList<>(), new HashSet<>());
 //        graph.print();
     }
 

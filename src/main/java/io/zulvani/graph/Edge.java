@@ -3,12 +3,10 @@ package io.zulvani.graph;
 public class Edge {
     private Double weight;
     private String destNode;
-    private String sourceNode;
 
-    public Edge(String sourceNode, String destNode, Double weight) {
+    public Edge(String destNode, Double weight) {
         this.weight = weight;
         this.destNode = destNode;
-        this.sourceNode = sourceNode;
     }
 
     public Double getWeight() {
@@ -25,13 +23,5 @@ public class Edge {
 
     public void setDestNode(String destNode) {
         this.destNode = destNode;
-    }
-
-    public String getSourceNode() {
-        return sourceNode;
-    }
-
-    public void setSourceNode(String sourceNode) {
-        this.sourceNode = sourceNode;
     }
 }
