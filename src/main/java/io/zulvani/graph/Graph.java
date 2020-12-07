@@ -29,7 +29,46 @@ public class Graph {
         });
     }
 
-    public void traverseWithDFS(String node, Queue<String> queue, Set<String> visited){
+    public void dfs(String node){
+        Stack<String> stack = new Stack<>();
+        Set<String> visited = new HashSet<>();
+
+        do {
+            List<Edge> edges = nodes.get(node);
+            String nextNode;
+
+            int i = 0;
+            do {
+                nextNode = edges.get(i).getDestNode();
+                if (visited.contains(node + nextNode)) {
+                    nextNode = null;
+                    i++;
+                } else {
+                    break;
+                }
+            } while (i < edges.size());
+
+            boolean pop = false;
+            if (nextNode == null && stack.isEmpty()) {
+                break;
+            } else if(nextNode == null) {
+                nextNode = stack.pop();
+                pop = true;
+            } else {
+                stack.push(node);
+            }
+
+            if(!pop) {
+                System.out.println(node + " => " + nextNode);
+            }
+
+            visited.add(node + nextNode);
+            node = nextNode;
+
+        } while (node != null);
+    }
+
+    public void bfs(String node, Queue<String> queue, Set<String> visited){
         visited.add(node);
 
         nodes.get(node).stream().forEach(edge -> {
@@ -47,7 +86,7 @@ public class Graph {
         } while(alreadyVisited);
 
         if(next != null) {
-            traverseWithDFS(next, queue, visited);
+            bfs(next, queue, visited);
         }
     }
 
