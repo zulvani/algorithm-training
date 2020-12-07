@@ -29,24 +29,26 @@ public class Graph {
         });
     }
 
-    public void dfs(String node){
+    public void directedGraphWithDfs(String node){
         Stack<String> stack = new Stack<>();
         Set<String> visited = new HashSet<>();
 
         do {
             List<Edge> edges = nodes.get(node);
-            String nextNode;
+            String nextNode = null;
 
-            int i = 0;
-            do {
-                nextNode = edges.get(i).getDestNode();
-                if (visited.contains(node + nextNode)) {
-                    nextNode = null;
-                    i++;
-                } else {
-                    break;
-                }
-            } while (i < edges.size());
+            if(edges.size() > 0) {
+                int i = 0;
+                do {
+                    nextNode = edges.get(i).getDestNode();
+                    if (visited.contains(node + nextNode)) {
+                        nextNode = null;
+                        i++;
+                    } else {
+                        break;
+                    }
+                } while (i < edges.size());
+            }
 
             boolean pop = false;
             if (nextNode == null && stack.isEmpty()) {

@@ -7,27 +7,27 @@ public class MainGraph {
 
     public MainGraph() {
         Graph graph = new Graph();
-        graph.addEdge("2", "3", 0.1);
-        graph.addEdge("2", "0", 0.2);
-        graph.addEdge("3", "3", 1.0);
-        graph.addEdge("0", "2", 1.0);
-        graph.addEdge("0", "1", 2.0);
-        graph.addEdge("1", "2", 1.0);
+//        graph.addEdge("2", "3", 0.1);
+//        graph.addEdge("2", "0", 0.2);
+//        graph.addEdge("3", "3", 1.0);
+//        graph.addEdge("0", "2", 1.0);
+//        graph.addEdge("0", "1", 2.0);
+//        graph.addEdge("1", "2", 1.0);
 
-//        graph.addEdge("1", "2", 0.0);
-//        graph.addEdge("1", "3", 0.0);
-//        graph.addEdge("1", "4", 0.0);
-//        graph.addEdge("1", "5", 0.0);
-//        graph.addEdge("2", "6", 0.0);
-//        graph.addEdge("2", "7", 0.0);
-//        graph.addEdge("3", "8", 0.0);
+        graph.addEdge("1", "2", 0.0);
+        graph.addEdge("1", "3", 0.0);
+        graph.addEdge("1", "4", 0.0);
+        graph.addEdge("1", "5", 0.0);
+        graph.addEdge("2", "6", 0.0);
+        graph.addEdge("2", "7", 0.0);
+        graph.addEdge("3", "8", 0.0);
 //
 //        graph.addEdge("2", "2", 0.0);
 
 
 
-//        graph.dfs("1");
-        graph.bfs("1", new LinkedList<>(), new HashSet<>());
+        graph.directedGraphWithDfs("1");
+//        graph.bfs("1", new LinkedList<>(), new HashSet<>());
 //        graph.print();
     }
 
